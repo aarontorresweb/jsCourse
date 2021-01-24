@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 ///////////////////////////////////////
 // Coding Challenge #4
@@ -52,19 +52,19 @@ GOOD LUCK 😀
 */
 
 const dogs = [
-  { name: 'Sparky', weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-  { name: 'Jorge', weight: 8, curFood: 200, owners: ['Matilda'] },
-  { name: 'Creampuff', weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-  { name: 'Sunshine', weight: 32, curFood: 340, owners: ['Michael'] },
+  { name: "Sparky", weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+  { name: "Jorge", weight: 8, curFood: 200, owners: ["Matilda"] },
+  { name: "Creampuff", weight: 13, curFood: 275, owners: ["Sarah", "John"] },
+  { name: "Sunshine", weight: 32, curFood: 340, owners: ["Michael"] },
 ];
 
 // 1.
-dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
+dogs.forEach((dog) => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
 console.log(dogs);
 
 // 2.
 const eatingRecFood = function (owner) {
-  const dogResult = dogs.find(dog => dog.owners.includes(`${owner}`));
+  const dogResult = dogs.find((dog) => dog.owners.includes(`${owner}`));
   console.log(dogResult);
   if (
     dogResult.curFood >= dogResult.recFood * 0.9 &&
@@ -86,40 +86,40 @@ const eatingRecFood = function (owner) {
     dogResult.tooLittleFood = true;
   }
 };
-eatingRecFood('Alice');
-eatingRecFood('Matilda');
-eatingRecFood('Sarah');
-eatingRecFood('Michael');
+eatingRecFood("Alice");
+eatingRecFood("Matilda");
+eatingRecFood("Sarah");
+eatingRecFood("Michael");
 console.log(dogs);
 
 // 3. Remember - need to find the owners! So added the map() to find the owners.
 const dogsTooMuchFood = dogs
-  .filter(dog => dog.curFood > dog.recFood * 1.1)
-  .flatMap(dog => dog.owners);
+  .filter((dog) => dog.curFood > dog.recFood * 1.1)
+  .flatMap((dog) => dog.owners);
 const dogsTooLittleFood = dogs
-  .filter(dog => dog.curFood < dog.recFood * 0.9)
-  .flatMap(dog => dog.owners);
+  .filter((dog) => dog.curFood < dog.recFood * 0.9)
+  .flatMap((dog) => dog.owners);
 const dogsCorrectFood = dogs
   .filter(
-    dog => dog.curFood < dog.recFood * 1.1 && dog.curFood > dog.recFood * 0.9
+    (dog) => dog.curFood < dog.recFood * 1.1 && dog.curFood > dog.recFood * 0.9
   )
-  .flatMap(dog => dog.owners);
+  .flatMap((dog) => dog.owners);
 console.log(dogsTooMuchFood);
 console.log(dogsTooLittleFood);
 console.log(dogsCorrectFood);
 
 // 4.
-console.log(`${dogsTooMuchFood.join(' and ')}\'s dogs eat too much.`);
-console.log(`${dogsTooLittleFood.join(' and ')}\'s dogs eat too little.`);
-console.log(`${dogsCorrectFood.join(' and ')}\'s dogs eat the correct amount.`);
+console.log(`${dogsTooMuchFood.join(" and ")}\'s dogs eat too much.`);
+console.log(`${dogsTooLittleFood.join(" and ")}\'s dogs eat too little.`);
+console.log(`${dogsCorrectFood.join(" and ")}\'s dogs eat the correct amount.`);
 
 // 5.
-const eatingExactRecFood = dogs.some(dog => dog.curFood === dog.recFood);
+const eatingExactRecFood = dogs.some((dog) => dog.curFood === dog.recFood);
 console.log(eatingExactRecFood);
 
 // 6.
 const eatingAcceptableAmtFood = dogs.some(
-  dog => dog.curFood < dog.recFood * 1.1 && dog.curFood > dog.recFood * 0.9
+  (dog) => dog.curFood < dog.recFood * 1.1 && dog.curFood > dog.recFood * 0.9
 );
 console.log(eatingAcceptableAmtFood);
 
@@ -127,9 +127,9 @@ console.log(eatingAcceptableAmtFood);
 // OKAY amount of food (try to reuse the condition used in 6.)
 const dogsCorrectFood2 = dogs
   .filter(
-    dog => dog.curFood < dog.recFood * 1.1 && dog.curFood > dog.recFood * 0.9
+    (dog) => dog.curFood < dog.recFood * 1.1 && dog.curFood > dog.recFood * 0.9
   )
-  .flatMap(dog => dog.name);
+  .flatMap((dog) => dog.name);
 console.log(
   `Dogs that are eating the correct amount of food: ${dogsCorrectFood2}.`
 );
